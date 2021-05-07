@@ -1,6 +1,7 @@
 import 'package:app_calculadora/shared/widgets/ajuda.dart';
 import 'package:app_calculadora/shared/widgets/button_widget.dart';
 import 'package:app_calculadora/shared/widgets/input_widget.dart';
+import 'package:app_calculadora/utils/calculadora.dart';
 import 'package:flutter/material.dart';
 
 class CalculadoraPage extends StatefulWidget {
@@ -143,12 +144,16 @@ class _CalculadoraPageState extends State<CalculadoraPage> {
   }
 
   _ajuda(BuildContext context) {
+    List<String> mensagemAjuda = Calculadora.calculadoraAjuda();
     showDialog(
       builder: (context) => Ajuda(
-        texto: '''
-          A----B
-          C----X
-          X=(B*C)/A''',
+        conteudo: Column(
+          children: [
+            Text(mensagemAjuda[0]),
+            Text(mensagemAjuda[1]),
+            Text(mensagemAjuda[2]),
+          ],
+        ),
       ),
       context: context,
     );
