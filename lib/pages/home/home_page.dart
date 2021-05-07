@@ -1,8 +1,8 @@
-import 'package:app_calculadora/calculadora/calculadora_page.dart';
-import 'package:app_calculadora/perimetro_circulo/perimetro_circulo_page.dart';
-import 'package:app_calculadora/shared/widgets/button_widget.dart';
-import 'package:app_calculadora/teorema_pitagoras/teorema_pitagoras_page.dart';
 import 'package:flutter/material.dart';
+import 'package:app_calculadora/pages/calculadora/calculadora_page.dart';
+import 'package:app_calculadora/pages/perimetro_circulo/perimetro_circulo_page.dart';
+import 'package:app_calculadora/pages/teorema_pitagoras/teorema_pitagoras_page.dart';
+import 'package:app_calculadora/shared/widgets/button_widget.dart';
 
 class HomePage extends StatelessWidget {
   @override

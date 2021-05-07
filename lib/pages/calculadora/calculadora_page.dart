@@ -15,7 +15,7 @@ class _CalculadoraPageState extends State<CalculadoraPage> {
   String _valor = '0';
   final campoNomeController = TextEditingController();
   final campoBController = TextEditingController();
-  String _campoVazioMensagem = "Campo vazio";
+  String _campoVazio = "Campo vazio";
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +34,7 @@ class _CalculadoraPageState extends State<CalculadoraPage> {
             InputWidget(
               labelCampo: 'Nome',
               keyboardType: TextInputType.text,
-              mensagemCampoErro: _campoVazioMensagem,
+              mensagemCampoErro: _campoVazio,
               onCallback: (value) {
                 _formData["nome"] = value;
               },
@@ -42,7 +42,7 @@ class _CalculadoraPageState extends State<CalculadoraPage> {
             InputWidget(
               labelCampo: 'Campo A',
               keyboardType: TextInputType.text,
-              mensagemCampoErro: _campoVazioMensagem,
+              mensagemCampoErro: _campoVazio,
               onCallback: (value) {
                 _formData["campo_a"] = value;
               },
@@ -50,7 +50,7 @@ class _CalculadoraPageState extends State<CalculadoraPage> {
             InputWidget(
               labelCampo: 'Campo B',
               keyboardType: TextInputType.text,
-              mensagemCampoErro: _campoVazioMensagem,
+              mensagemCampoErro: _campoVazio,
               onCallback: (value) {
                 _formData["campo_b"] = value;
               },
@@ -58,7 +58,7 @@ class _CalculadoraPageState extends State<CalculadoraPage> {
             InputWidget(
               labelCampo: 'Campo C',
               keyboardType: TextInputType.text,
-              mensagemCampoErro: _campoVazioMensagem,
+              mensagemCampoErro: _campoVazio,
               onCallback: (value) {
                 _formData["campo_c"] = value;
               },
