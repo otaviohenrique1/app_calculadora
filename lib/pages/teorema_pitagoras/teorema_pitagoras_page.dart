@@ -1,5 +1,5 @@
 import 'package:app_calculadora/shared/widgets/ajuda.dart';
-import 'package:app_calculadora/shared/widgets/button_widget.dart';
+import 'package:app_calculadora/shared/widgets/button_form_container.dart';
 import 'package:app_calculadora/shared/widgets/input_widget.dart';
 import 'package:app_calculadora/utils/calculadora.dart';
 import 'package:flutter/material.dart';
@@ -75,34 +75,16 @@ class _TeoremaPitagorasPageState extends State<TeoremaPitagorasPage> {
                 ],
               ),
             ),
-            Padding(
-              padding: EdgeInsets.only(top: 20),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  ButtonWidget(
-                    margin: EdgeInsets.only(left: 10),
-                    labelBotao: 'Calcular',
-                    onCallback: () {
-                      _calcular();
-                    },
-                  ),
-                  ButtonWidget(
-                    margin: EdgeInsets.only(left: 10),
-                    labelBotao: 'Limpar',
-                    onCallback: () {
-                      _resetForm();
-                    },
-                  ),
-                  ButtonWidget(
-                    margin: EdgeInsets.only(left: 10),
-                    labelBotao: 'Ajuda',
-                    onCallback: () {
-                      _ajuda(context);
-                    },
-                  ),
-                ],
-              ),
+            ButtonFormContainer(
+              onCallbackSave: () {
+                _calcular();
+              },
+              onCallbackReset: () {
+                _resetForm();
+              },
+              onCallbackHelp: () {
+                _ajuda(context);
+              },
             ),
           ],
         ),
