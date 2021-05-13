@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-
 import 'button_widget.dart';
 
-class ButtonFormContainer extends StatelessWidget {
+class ButtonFormContainerWidget extends StatelessWidget {
   final Function()? onCallbackSave;
   final Function()? onCallbackReset;
   final Function()? onCallbackHelp;
 
-  ButtonFormContainer({
+  ButtonFormContainerWidget({
     Key? key,
     this.onCallbackSave,
     this.onCallbackReset,

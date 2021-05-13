@@ -1,6 +1,7 @@
-import 'package:app_calculadora/shared/widgets/ajuda.dart';
-import 'package:app_calculadora/shared/widgets/button_form_container.dart';
+import 'package:app_calculadora/shared/widgets/ajuda_widget.dart';
+import 'package:app_calculadora/shared/widgets/button_form_container_widget.dart';
 import 'package:app_calculadora/shared/widgets/input_widget.dart';
+import 'package:app_calculadora/shared/widgets/resultado_widget.dart';
 import 'package:app_calculadora/utils/calculadora.dart';
 import 'package:flutter/material.dart';
 
@@ -38,30 +39,11 @@ class _PerimetroCirculoPageState extends State<PerimetroCirculoPage> {
                 _formData["campo_valor"] = value;
               },
             ),
-            Padding(
-              padding: EdgeInsets.only(top: 20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Resultado:',
-                    style: TextStyle(
-                      fontSize: 20,
-                    ),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Text(
-                        '$_valor',
-                        style: TextStyle(fontSize: 30),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
+            ResultadoWidget(
+              resultadoLabel: 'Resultado:',
+              resultadoValor: '$_valor',
             ),
-            ButtonFormContainer(
+            ButtonFormContainerWidget(
               onCallbackSave: () {
                 _calcular();
               },
