@@ -18,39 +18,33 @@ class HomePage extends StatelessWidget {
             margin: EdgeInsets.only(bottom: 10),
             labelBotao: "Calculadora",
             onCallback: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => CalculadoraPage(),
-                ),
-              );
+              rotaPagina(context, CalculadoraPage());
             },
           ),
           ButtonWidget(
             margin: EdgeInsets.only(bottom: 10),
             labelBotao: "Teorema de Pitagoras",
             onCallback: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => TeoremaPitagorasPage(),
-                ),
-              );
+              rotaPagina(context, TeoremaPitagorasPage());
             },
           ),
           ButtonWidget(
             margin: EdgeInsets.only(bottom: 10),
             labelBotao: "Perimetro do Circulo",
             onCallback: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => PerimetroCirculoPage(),
-                ),
-              );
+              rotaPagina(context, PerimetroCirculoPage());
             },
           ),
         ],
+      ),
+    );
+  }
+
+  void rotaPagina(BuildContext context, dynamic pagnina) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => pagnina,
       ),
     );
   }

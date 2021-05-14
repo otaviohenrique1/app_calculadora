@@ -63,14 +63,21 @@ class _PerimetroCirculoPageState extends State<PerimetroCirculoPage> {
   _calcular() {
     if (_formKey.currentState!.validate()) {
       _formKey.currentState!.save();
-      num campoValorRaio = num.parse(_formData['campo_valor']);
+      num campoValorRaio = Calculadora.stringParaNum(_formData['campo_valor']);
       // num resultado = 2 * pi * campoValorRaio;
       num resultado = Calculadora.perimetroCirculo(campoValorRaio);
-      String resultadoFormatado = resultado.toStringAsFixed(2);
-      String resultadoArredondado = resultado.round().toString();
+      // String resultadoFormatado = resultado.toStringAsFixed(2);
+      // String resultadoArredondado = resultado.round().toString();
+
+      String resultadoFormatado = Calculadora.formataCalculoEmString(
+        valor: campoValorRaio,
+        resultado: resultado,
+      );
+
       setState(() {
-        _valor =
-            '$campoValorRaio -> $resultadoFormatado -> $resultadoArredondado';
+        _valor = resultadoFormatado;
+        // _valor =
+        //     '$campoValorRaio -> $resultadoFormatado -> $resultadoArredondado';
         campoValorController.text = '';
         // return _valor;
       });
@@ -78,7 +85,7 @@ class _PerimetroCirculoPageState extends State<PerimetroCirculoPage> {
   }
 
   _ajuda(BuildContext context) {
-    List<String> mensagemAjuda = Calculadora.perimeroCirculoAjuda();
+    List<String> mensagemAjuda = CalculadoraAjuda.perimeroCirculoAjuda();
     showDialog(
       builder: (context) => Ajuda(
         conteudo: Column(

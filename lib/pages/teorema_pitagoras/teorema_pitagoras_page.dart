@@ -78,16 +78,20 @@ class _TeoremaPitagorasPageState extends State<TeoremaPitagorasPage> {
     if (_formKey.currentState!.validate()) {
       _formKey.currentState!.save();
       String nomeCampo = '';
-      num cateto1 = num.parse(_formData['cateto_1']);
-      num cateto2 = num.parse(_formData['cateto_2']);
-      num hipotenusa = num.parse(_formData['hipotenusa']);
+
+      num cateto1 = Calculadora.stringParaNum(_formData['cateto_1']);
+      num cateto2 = Calculadora.stringParaNum(_formData['cateto_2']);
+      num hipotenusa = Calculadora.stringParaNum(_formData['hipotenusa']);
 
       dynamic resultado;
       dynamic resultadoFormatado;
       dynamic resultadoArredondado;
 
-      List<dynamic> calculo = Calculadora.teoremaDePitagoras2(
-          cateto1: cateto1, cateto2: cateto2, hipotenusa: hipotenusa);
+      List<dynamic> calculo = TeoremaDePitagoras.teoremaDePitagoras2(
+        cateto1: cateto1,
+        cateto2: cateto2,
+        hipotenusa: hipotenusa,
+      );
 
       setState(() {
         nomeCampo = calculo[0];
@@ -97,13 +101,12 @@ class _TeoremaPitagorasPageState extends State<TeoremaPitagorasPage> {
 
         _resultadoLabel = 'Resultado: $nomeCampo';
         _valor = '$resultado -> $resultadoFormatado -> $resultadoArredondado';
-        // return _valor;
       });
     }
   }
 
   _ajuda(BuildContext context) {
-    List<String> mensagemAjuda = Calculadora.teoremaDePitagorasAjuda();
+    List<String> mensagemAjuda = CalculadoraAjuda.teoremaDePitagorasAjuda();
     showDialog(
       builder: (context) => Ajuda(
         conteudo: Column(

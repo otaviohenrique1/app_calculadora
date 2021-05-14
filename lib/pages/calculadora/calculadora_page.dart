@@ -89,26 +89,33 @@ class _CalculadoraPageState extends State<CalculadoraPage> {
     if (_formKey.currentState!.validate()) {
       _formKey.currentState!.save();
       String nome = _formData['nome'];
-      num campoA = num.parse(_formData['campo_a']);
-      num campoB = num.parse(_formData['campo_b']);
-      num campoC = num.parse(_formData['campo_c']);
+      num campoA = Calculadora.stringParaNum(_formData['campo_a']);
+      num campoB = Calculadora.stringParaNum(_formData['campo_b']);
+      num campoC = Calculadora.stringParaNum(_formData['campo_c']);
 
-      num resultado = (campoB * campoC) / campoA;
-      String resultadoFormatado = resultado.toStringAsFixed(2);
-      String resultadoArredondado = resultado.round().toString();
+      num resultado = Calculadora.calculaMedida(
+        campoA: campoA,
+        campoB: campoB,
+        campoC: campoC,
+      );
+
+      String resultadoFormatado = Calculadora.formataCalculoEmString(
+        valor: campoB,
+        resultado: resultado,
+      );
 
       setState(() {
-        _valor =
-            '$nome -> $campoB -> $resultadoFormatado -> $resultadoArredondado';
+        // _valor =
+        //     '$nome -> $campoB -> $resultadoFormatado -> $resultadoArredondado';
+        _valor = '$nome -> $resultadoFormatado';
         campoNomeController.text = '';
         campoBController.text = '';
-        // return _valor;
       });
     }
   }
 
   _ajuda(BuildContext context) {
-    List<String> mensagemAjuda = Calculadora.calculadoraAjuda();
+    List<String> mensagemAjuda = CalculadoraAjuda.calculadoraAjuda();
     showDialog(
       builder: (context) => Ajuda(
         conteudo: Column(
@@ -130,58 +137,3 @@ class _CalculadoraPageState extends State<CalculadoraPage> {
     _formKey.currentState!.reset();
   }
 }
-
-/*
-  Padding(
-    padding: EdgeInsets.only(top: 20),
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          'Resultado:',
-          style: TextStyle(
-            fontSize: 20,
-          ),
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            Text(
-              '$_valor',
-              style: TextStyle(fontSize: 30),
-            ),
-          ],
-        ),
-      ],
-    ),
-  ),
-  Padding(
-    padding: EdgeInsets.only(top: 20),
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.end,
-      children: [
-        ButtonWidget(
-          margin: EdgeInsets.only(left: 10),
-          labelBotao: 'Calcular',
-          onCallback: () {
-            _calcular();
-          },
-        ),
-        ButtonWidget(
-          margin: EdgeInsets.only(left: 10),
-          labelBotao: 'Limpar',
-          onCallback: () {
-            _resetForm();
-          },
-        ),
-        ButtonWidget(
-          margin: EdgeInsets.only(left: 10),
-          labelBotao: 'Ajuda',
-          onCallback: () {
-            _ajuda(context);
-          },
-        ),
-      ],
-    ),
-  ),
-*/
