@@ -3,6 +3,7 @@ import 'package:app_calculadora/shared/widgets/button_form_container_widget.dart
 import 'package:app_calculadora/shared/widgets/input_widget.dart';
 import 'package:app_calculadora/shared/widgets/resultado_widget.dart';
 import 'package:app_calculadora/utils/calculadora.dart';
+import 'package:app_calculadora/utils/calculadora_ajuda.dart';
 import 'package:flutter/material.dart';
 
 class CalculadoraPage extends StatefulWidget {
