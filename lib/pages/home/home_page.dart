@@ -40,11 +40,11 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  void rotaPagina(BuildContext context, dynamic pagnina) {
+  void rotaPagina(BuildContext context, dynamic pagina) {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => pagnina,
+        builder: (context) => pagina,
       ),
     );
   }
