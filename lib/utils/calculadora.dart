@@ -83,3 +83,35 @@ class TeoremaDePitagoras {
     return ['', 0];
   }
 }
+
+class EquacacaoCalculadora {
+  static Map<String, dynamic> equacao2Grau({
+    required num a,
+    required num b,
+    required num c,
+  }) {
+    num delta = pow(b, 2) - (4 * a * c);
+
+    if (delta < 0) {
+      /* Se Δ < 0, a equacao do segundo grau nao possui raizes reais; */
+      return {
+        "r": "nao possui raizes reais",
+      };
+    } else if (delta == 0) {
+      /* Se Δ = 0, a equacao do segundo grau possui uma raiz real; */
+      num x = (-b + 0) / (2 * a);
+      return {
+        "x": x,
+      };
+    } else if (delta > 0) {
+      /* Se Δ > 0, a equacao do segundo grau possui duas raizes reais. */
+      num x1 = (-b + sqrt(delta)) / (2 * a);
+      num x2 = (-b - sqrt(delta)) / (2 * a);
+      return {
+        "x1": x1,
+        "x2": x2,
+      };
+    }
+    return {"r": "Valor invalido"};
+  }
+}
