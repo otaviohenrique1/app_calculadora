@@ -14,8 +14,7 @@ class EquacaoSegundoGrauPage extends StatefulWidget {
 class _EquacaoSegundoGrauPageState extends State<EquacaoSegundoGrauPage> {
   final _formKey = GlobalKey<FormState>();
   Map<dynamic, dynamic> _formData = {};
-  // String _valor = '0';
-  List<Widget> _valor = [Text('0', style: TextStyle(fontSize: 30))];
+  String _valor = '0';
   String _campoVazio = "Campo vazio";
   String _resultadoLabel = 'Resultado:';
 
@@ -57,23 +56,9 @@ class _EquacaoSegundoGrauPageState extends State<EquacaoSegundoGrauPage> {
                 _formData["campo_c"] = value;
               },
             ),
-            Padding(
-              padding: EdgeInsets.only(top: 20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    _resultadoLabel,
-                    style: TextStyle(
-                      fontSize: 20,
-                    ),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: _valor,
-                  ),
-                ],
-              ),
+            ResultadoWidget(
+              resultadoLabel: _resultadoLabel,
+              resultadoValor: '$_valor',
             ),
             ButtonFormContainerWidget(
               onCallbackSave: () {
@@ -100,21 +85,14 @@ class _EquacaoSegundoGrauPageState extends State<EquacaoSegundoGrauPage> {
       num campoB = Calculadora.stringParaNum(_formData['campo_b']);
       num campoC = Calculadora.stringParaNum(_formData['campo_c']);
 
-      Map<String, dynamic> calculo = EquacacaoCalculadora.equacao2Grau(
+      String calculo = EquacacaoCalculadora.equacao2Grau(
         a: campoA,
         b: campoB,
         c: campoC,
       );
 
       setState(() {
-        // .forEach((key, value) => print('$key => $value'))
-        // calculo.forEach((key, value) {
-        //   _valor = '$key => $value';
-        // });
-        _valor = [];
-        calculo.forEach((key, value) {
-          _valor.add(Text('$key => $value', style: TextStyle(fontSize: 30)));
-        });
+        _valor = calculo;
       });
     }
   }
@@ -138,8 +116,7 @@ class _EquacaoSegundoGrauPageState extends State<EquacaoSegundoGrauPage> {
 
   _resetForm() {
     setState(() {
-      _valor = [];
-      _valor.add(Text('0', style: TextStyle(fontSize: 30)));
+      _valor = '0';
     });
     _formKey.currentState!.reset();
   }

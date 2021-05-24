@@ -1,3 +1,4 @@
+import 'package:app_calculadora/pages/equacao_segundo_grau/equacao_segundo_grau_page.dart';
 import 'package:flutter/material.dart';
 import 'package:app_calculadora/pages/calculadora/calculadora_page.dart';
 import 'package:app_calculadora/pages/perimetro_circulo/perimetro_circulo_page.dart';
@@ -33,6 +34,13 @@ class HomePage extends StatelessWidget {
             labelBotao: "Perimetro do Circulo",
             onCallback: () {
               rotaPagina(context, PerimetroCirculoPage());
+            },
+          ),
+          ButtonWidget(
+            margin: EdgeInsets.only(bottom: 10),
+            labelBotao: "Equação de segundo grau",
+            onCallback: () {
+              rotaPagina(context, EquacaoSegundoGrauPage());
             },
           ),
         ],
