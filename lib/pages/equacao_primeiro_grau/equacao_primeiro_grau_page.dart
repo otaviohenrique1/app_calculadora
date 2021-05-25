@@ -30,9 +30,6 @@ class _EquacaoPrimeiroGrauPageState extends State<EquacaoPrimeiroGrauPage> {
         child: ListView(
           padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
           children: [
-            Expanded(
-              child: Text("ax + b = 0"),
-            ),
             InputWidget(
               labelCampo: 'A',
               keyboardType: TextInputType.text,

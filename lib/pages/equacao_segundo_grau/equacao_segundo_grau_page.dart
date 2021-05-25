@@ -29,9 +29,6 @@ class _EquacaoSegundoGrauPageState extends State<EquacaoSegundoGrauPage> {
         child: ListView(
           padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
           children: [
-            Expanded(
-              child: Text("ax² + bx + c = 0"),
-            ),
             InputWidget(
               labelCampo: 'A',
               keyboardType: TextInputType.text,
