@@ -20,12 +20,29 @@ class CalculadoraAjuda {
 
   static List<String> teoremaDePitagorasAjuda() {
     List<String> mensagemTeoremaDePitagorasAjuda = [
-      'H^2=C1^2+C2^2',
+      'H²=C1²+C2²',
       'H => Hipotenusa',
       'C1 => Cateto1',
       'C2 => Cateto2',
     ];
     return mensagemTeoremaDePitagorasAjuda;
+  }
+
+  static List<String> equacaoSegundoGrauAjuda() {
+    List<String> mensagemEquacaoSegundoGrauAjuda = [
+      'ax² + bx + c = 0',
+      'Δ = b² - 4ac',
+      'x1 = (-b + √Δ)/(2a)',
+      'x2 = (-b - √Δ)/(2a)',
+    ];
+    return mensagemEquacaoSegundoGrauAjuda;
+  }
+
+  static List<String> equacaoPrimeiroGrauAjuda() {
+    List<String> mensagemEquacaoPrimeiroGrauAjuda = [
+      'ax + b = 0',
+    ];
+    return mensagemEquacaoPrimeiroGrauAjuda;
   }
 
   /*

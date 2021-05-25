@@ -6,12 +6,13 @@ import 'package:app_calculadora/utils/calculadora.dart';
 import 'package:app_calculadora/utils/calculadora_ajuda.dart';
 import 'package:flutter/material.dart';
 
-class EquacaoSegundoGrauPage extends StatefulWidget {
+class EquacaoPrimeiroGrauPage extends StatefulWidget {
   @override
-  _EquacaoSegundoGrauPageState createState() => _EquacaoSegundoGrauPageState();
+  _EquacaoPrimeiroGrauPageState createState() =>
+      _EquacaoPrimeiroGrauPageState();
 }
 
-class _EquacaoSegundoGrauPageState extends State<EquacaoSegundoGrauPage> {
+class _EquacaoPrimeiroGrauPageState extends State<EquacaoPrimeiroGrauPage> {
   final _formKey = GlobalKey<FormState>();
   Map<dynamic, dynamic> _formData = {};
   String _valor = '0';
@@ -30,7 +31,7 @@ class _EquacaoSegundoGrauPageState extends State<EquacaoSegundoGrauPage> {
           padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
           children: [
             Expanded(
-              child: Text("ax² + bx + c = 0"),
+              child: Text("ax + b = 0"),
             ),
             InputWidget(
               labelCampo: 'A',
@@ -46,14 +47,6 @@ class _EquacaoSegundoGrauPageState extends State<EquacaoSegundoGrauPage> {
               mensagemCampoErro: _campoVazio,
               onCallback: (value) {
                 _formData["campo_b"] = value;
-              },
-            ),
-            InputWidget(
-              labelCampo: 'C',
-              keyboardType: TextInputType.text,
-              mensagemCampoErro: _campoVazio,
-              onCallback: (value) {
-                _formData["campo_c"] = value;
               },
             ),
             ResultadoWidget(
@@ -83,12 +76,10 @@ class _EquacaoSegundoGrauPageState extends State<EquacaoSegundoGrauPage> {
 
       num campoA = Calculadora.stringParaNum(_formData['campo_a']);
       num campoB = Calculadora.stringParaNum(_formData['campo_b']);
-      num campoC = Calculadora.stringParaNum(_formData['campo_c']);
 
-      String calculo = EquacacaoCalculadora.equacao2Grau(
+      String calculo = EquacacaoCalculadora.equacao1Grau(
         a: campoA,
         b: campoB,
-        c: campoC,
       );
 
       setState(() {
@@ -98,15 +89,12 @@ class _EquacaoSegundoGrauPageState extends State<EquacaoSegundoGrauPage> {
   }
 
   _ajuda(BuildContext context) {
-    List<String> mensagemAjuda = CalculadoraAjuda.equacaoSegundoGrauAjuda();
+    List<String> mensagemAjuda = CalculadoraAjuda.equacaoPrimeiroGrauAjuda();
     showDialog(
       builder: (context) => Ajuda(
         conteudo: Column(
           children: [
             Text(mensagemAjuda[0]),
-            Text(mensagemAjuda[1]),
-            Text(mensagemAjuda[2]),
-            Text(mensagemAjuda[3]),
           ],
         ),
       ),
